@@ -1,10 +1,19 @@
 global.SALT_KEY = '5aa93bc125867b2329131fa4';
-global.EMAIL_TMPL = '<strong>{0}</strong>';
+global.EMAIL_TMPL = 'Olá, <strong>{0}</strong> seja bem vindo ao Node Storage';
+const keys = require('./keys');
 
 module.exports = {
-    connectionString: 'mongodb://admin:admin@ds012678.mlab.com:12678/testemongodb',
-    sendgridKey: 'TDB',
-    containerConnectionString: 'TDB'
+    connectionString: keys.connectionString,
+    sendgridKey: keys.sendgridKey,
+    containerConnectionString: 'TDB',
+    configFirebase: {
+        apiKey: keys.keysFirebase.apiKey,
+        authDomain: keys.keysFirebase.authDomain,
+        databaseURL: keys.keysFirebase.databaseURL,
+        projectId: keys.keysFirebase.projectId,
+        storageBucket: keys.keysFirebase.projectId,
+        messagingSenderId: keys.keysFirebase.messagingSenderId
+    }
 }
 
 

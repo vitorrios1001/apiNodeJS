@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/product-repository');
+const uploadImage = require('../services/uploadImage-service');
 
 exports.getAll = (req,res,next) => {
     repository
@@ -59,8 +60,17 @@ exports.getTag = (req,res,next) => {
 
 exports.post = (req,res,next) => {
     //Construir function abstrata de validação dos dados recebidos
+
+    
     repository
-    .create(req.body)
+    .create({
+        title: req.body.title,
+        slug: req.body.slug,
+        description: req.body.description ,
+        price: req.body.price,
+        active: req.body.active,
+        tags: req.body.tags
+    })
         .then(x => {
             res.status(201).send({ message: 'Produdo cadastrado com sucesso!'});               
         }).catch(e => {
