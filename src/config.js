@@ -4,7 +4,7 @@ const keys = require('./keys');
 
 module.exports = {
     connectionString: process.env.CONNECTIONSTRING || keys.connectionString,
-    sendgridKey: process.env.SENDGRID || keys.sendgridKey,
+    sendgridKey: process.env.SENDGRIDKEY || keys.sendgridKey,
     containerConnectionString: 'TDB',
     // configFirebase: {
     //     apiKey: keys.keysFirebase.apiKey,
