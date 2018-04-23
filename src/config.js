@@ -3,17 +3,17 @@ global.EMAIL_TMPL = 'Olá, <strong>{0}</strong> seja bem vindo ao Node Storage';
 const keys = require('./keys');
 
 module.exports = {
-    connectionString: keys.connectionString,
-    sendgridKey: keys.sendgridKey,
+    connectionString: process.env.CONNECTIONSTRING || keys.connectionString,
+    sendgridKey: process.env.SENDGRID || keys.sendgridKey,
     containerConnectionString: 'TDB',
-    configFirebase: {
-        apiKey: keys.keysFirebase.apiKey,
-        authDomain: keys.keysFirebase.authDomain,
-        databaseURL: keys.keysFirebase.databaseURL,
-        projectId: keys.keysFirebase.projectId,
-        storageBucket: keys.keysFirebase.projectId,
-        messagingSenderId: keys.keysFirebase.messagingSenderId
-    }
+    // configFirebase: {
+    //     apiKey: keys.keysFirebase.apiKey,
+    //     authDomain: keys.keysFirebase.authDomain,
+    //     databaseURL: keys.keysFirebase.databaseURL,
+    //     projectId: keys.keysFirebase.projectId,
+    //     storageBucket: keys.keysFirebase.projectId,
+    //     messagingSenderId: keys.keysFirebase.messagingSenderId
+    // }
 }
 
 
