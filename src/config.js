@@ -1,6 +1,8 @@
+const keys = require('./keys');
+
 global.SALT_KEY = process.env.SECRETKEY || keys.secretKey;
 global.EMAIL_TMPL = 'Olá, <strong>{0}</strong> seja bem vindo ao Node Storage';
-const keys = require('./keys');
+
 
 module.exports = {
     connectionString: process.env.CONNECTIONSTRING || keys.connectionString,
